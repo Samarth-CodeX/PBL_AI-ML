@@ -1,142 +1,184 @@
-# 🧠 Disease Risk Prediction using Machine Learning
+# Heart Disease Prediction using Machine Learning
 
-## 📌 Project Overview
+## Overview
 
-This project presents an end-to-end machine learning pipeline to predict disease risk using patient clinical data. The system is designed in a structured, multi-phase approach to demonstrate the evolution of model performance from basic analysis to optimized predictive modeling.
+This project is developed as part of a Project-Based Learning (PBL) initiative.
+The goal is to predict the presence of heart disease using machine learning techniques based on patient health data.
 
----
-
-## 🎯 Objectives
-
-* Perform Exploratory Data Analysis (EDA)
-* Build baseline machine learning models
-* Improve model performance using optimization techniques
-* Evaluate models using standard classification metrics
+The project is divided into multiple phases including data cleaning, exploratory analysis, and model building.
 
 ---
 
-## 🗂️ Project Structure
+## Project Structure
 
 ```
-disease-risk-prediction-ml/
-│
-├── Phase_1_EDA/              # Data understanding and visualization
-├── Phase_2_Baseline_Model/  # Initial model with basic performance
-├── Phase_3_Optimized_Model/ # Improved model with high accuracy
+AIML-PBL/
+│── Phase 1/
+│     └── data_cleaning.ipynb
+│── Phase 2/
+│     └── EDA.ipynb
+│── Phase 3/
+│     └── main.ipynb
+│── dataset/
+│     └── heart_disease_prediction_raw.csv
 ```
 
 ---
 
-## 🔍 Phase 1: Exploratory Data Analysis (EDA)
+## Phase-wise Breakdown
 
-* Data cleaning and preprocessing
-* Handling missing values and outliers
-* Visualization of feature distributions
-* Correlation analysis
+### Phase 1: Data Cleaning
 
-📊 Key Insights:
+* Loaded raw dataset
+* Removed duplicate records
+* Handled missing values:
 
-* Identified important features influencing disease risk
-* Observed correlations between clinical parameters
+  * Dropped missing target values
+  * Filled categorical with mode
+  * Filled numerical with median
+* Dropped unnecessary columns (e.g., `id`)
+* Standardized categorical values
+* Converted data types
+* Removed outliers using IQR method
+* Exported cleaned dataset
 
 ---
 
-## ⚙️ Phase 2: Baseline Model
+### Phase 2: Exploratory Data Analysis (EDA)
 
-* Implemented basic models:
+* Analyzed feature distributions
+* Used boxplots for outlier detection
+* Used bar charts and cross-tabulation for categorical analysis
+* Identified relationships between features and target variable
 
-  * Logistic Regression
-  * K-Nearest Neighbours (KNN)
+---
 
-📉 Characteristics:
+### Phase 3: Model Building & Evaluation
 
-* Minimal preprocessing
-* No hyperparameter tuning
-* Moderate accuracy
+#### Data Preprocessing
 
-📊 Evaluation Metrics:
+* Encoding:
+
+  * Label encoding for binary categories
+  * One-hot encoding for multi-class features
+* Feature scaling using StandardScaler
+* Train-test split (80-20)
+
+---
+
+## Machine Learning Models Used
+
+### 1. Logistic Regression
+
+* Used for binary classification
+* Implemented feature selection using coefficient importance
+* Iteratively removed least important features
+* Final model trained on optimized feature set
+
+---
+
+### 2. K-Nearest Neighbors (KNN)
+
+* Used k = 5
+* Distance-based classification
+* Evaluated using:
+
+  * Accuracy
+  * Precision
+  * Recall
+  * F1 Score
+  * ROC-AUC
+
+---
+
+### 3. Support Vector Machine (SVM)
+
+* Kernel used: RBF
+* Enabled probability predictions
+* Evaluated using:
+
+  * Accuracy
+  * Precision
+  * Recall
+  * F1 Score
+  * ROC-AUC
+
+---
+
+## Model Evaluation Metrics
 
 * Accuracy
 * Precision
 * Recall
-* F1-score
+* F1 Score
+* ROC-AUC Score
 * Confusion Matrix
+* Classification Report
 
 ---
 
-## 🚀 Phase 3: Optimized Model
+## Results
 
-* Applied advanced techniques:
-
-  * Feature Selection (RFE)
-  * Feature Scaling (StandardScaler)
-  * Hyperparameter Tuning (GridSearchCV)
-
-* Models used:
-
-  * Optimized KNN
-  * Support Vector Machine (SVM)
-  * Logistic Regression (tuned)
-
-📈 Improvements:
-
-* Significant increase in accuracy
-* Better generalization
-* Improved precision and recall
+* Compared Logistic Regression, KNN, and SVM
+* Best model selected based on performance metrics
+* Visualization of confusion matrices and ROC curves included
 
 ---
 
-## 📊 Model Evaluation
-
-Models were evaluated using:
-
-* Accuracy
-* Precision
-* Recall
-* F1-score
-* Confusion Matrix
-* ROC Curve
-
----
-
-## 🛠️ Technologies Used
+## Technologies Used
 
 * Python
-* Pandas
 * NumPy
+* Pandas
 * Matplotlib
 * Seaborn
 * Scikit-learn
 
 ---
 
-## 📌 Results
+## How to Run
 
-| Model           | Accuracy |
-| --------------- | -------- |
-| Baseline Model  | ~70%     |
-| Optimized Model | ~90%     |
+1. Install dependencies:
+
+```
+pip install numpy pandas matplotlib seaborn scikit-learn
+```
+
+2. Run Jupyter Notebook:
+
+```
+jupyter notebook
+```
+
+3. Execute notebooks phase-wise:
+
+* Phase 1 → Data Cleaning
+* Phase 2 → EDA
+* Phase 3 → Model Training
+
+---
+
+## Key Features of Project
+
+* Complete ML pipeline (raw data → prediction)
+* Real-world healthcare dataset
+* Feature engineering + selection
+* Multiple model comparison
+* Visualization-driven insights
 
 ---
 
-## 📈 Conclusion
+## Future Improvements
 
-The project demonstrates how systematic improvements in preprocessing, feature selection, and hyperparameter tuning significantly enhance model performance in disease prediction tasks.
-
----
-
-## 🔮 Future Work
-
-* Deploy model using Flask or Streamlit
-* Use deep learning models
-* Integrate real-time clinical data
+* Hyperparameter tuning (GridSearchCV)
+* Deployment using Flask/Streamlit
+* Adding more datasets for better generalization
+* Deep learning models for comparison
 
 ---
 
-## 👨‍💻 Author
+## Contributors
 
-SAMARTH TOMER
-SPARSH SAXENA
-TANMAY KUMAR
-
----
+* Sparsh Saxena
+* Samarth Tomer
+* Tanmay Kumar
